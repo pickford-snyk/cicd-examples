@@ -7,10 +7,10 @@ These are Bitbucket pipeline examples for accomplishing common Snyk workflows.
 ### Add Comment To Pull Request With New Vulns and Remediation
 
 #### Option 1: Use Shell Scripts 
-Example [bitbucket pipeline yaml](/pipelines/pr-shell-delta-comment.yml)
+Example [bitbucket pipeline yaml](/pipelines/pr-comment-shell-delta.yml)
 
 This pipeline will add a comment to a pull request. The comment will identify newly introduced vulnerabilities and indicate remediation paths
-1. Add the example [bitbucket-pipline.yml](/pipelines/pr-shell-delta-comment.yml) to your repository
+1. Add the example [bitbucket-pipline.yml](/pipelines/pr-comment-shell-delta.yml) to your repository
 2. Add the following variables to your repository
     - SECURITY_SCAN
         - Generate this token from Bitbucket's repository access tokens. This token is used to making API requests to Bitbucket. The variable name will be shown as the user in the comment 
