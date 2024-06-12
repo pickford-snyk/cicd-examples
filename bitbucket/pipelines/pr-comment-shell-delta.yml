@@ -1,0 +1,70 @@
+image: python:3.10
+
+pipelines:
+  pull-requests:
+    # Define the branch where you want to add the comment
+    '**':
+      - step:
+          # This step will update the snyk scan of the target branch.
+          #
+          # You may be able to skip this step if you don't need an updated snyk scan of the target 
+          # branch. For example, you may have continuous scanning of the target branch already.
+          # In that case you can simply set the snyk project ID as a repository variable. If you 
+          # are continuously scanning the target branch, you can also retest using the Snyk API
+          # rather than the monitor command used in this example.
+          name: Create baseline
+          script:
+            # Add the necessary packages
+            - curl -sL https://deb.nodesource.com/setup_18.x | bash -
+            - apt-get -y upgrade && apt-get -y install nodejs
+            - npm install --location=global snyk
+            
+            # Checkout the branch you want to compare against
+            - git checkout $BITBUCKET_PR_DESTINATION_BRANCH
+           
+           # Authenticate wtih Snyk. Run the scan and save project ID for the next step.
+            - snyk auth $SNYK_ACCOUNT_TOKEN 
+            - snyk monitor > baseline.txt
+            - snyk-tools/bin/baseline.sh baseline.txt > baseline_id.txt
+          artifacts:
+            - baseline_id.txt
+      - step: 
+          name: Get the scan delta
+          script:
+            # Add the necessary packages
+            - curl -sL https://deb.nodesource.com/setup_18.x | bash -
+            - apt-get -y upgrade && apt-get -y install nodejs
+            - npm install --location=global snyk snyk-delta
+            
+            
+            # Get the baseline project ID. 
+            # 
+            # If you didn't do the first pipeline step -- or you saved the baseline project ID to 
+            # a repo variable -- you can skip this.
+            - export BASELINE_ID=$(cat baseline_id.txt)
+            - export BASELINE_ID=$(echo $BASELINE_ID)
+            - echo $BASELINE_ID
+            
+            # Authenticate with snyk and run a delta scan using the previously saved project ID.
+            #
+            # The snyk-delta tool will output a 1 exit code (and fail the pipeline will fail) if
+            # new vulns are found. We are using " || true" to continue the pipeline.
+            - snyk auth $SNYK_ACCOUNT_TOKEN
+            - snyk test --json --print-deps | snyk-delta --baselineOrg 9b4c39e1-79bc-406a-8f67-ac2476d741a5 --baselineProject $BASELINE_ID > snyk_delta.txt || true
+            
+            # Save the results of the delta to artifacts
+            - snyk-tools/bin/delta.sh snyk_delta.txt > delta_summary.txt
+          artifacts:
+            - delta_summary.txt
+      - step:
+          name: Add Comment to Pull Request
+          script:
+            # Add the necessary packages
+            - curl -sL https://deb.nodesource.com/setup_18.x | bash -
+            - apt-get -y upgrade
+            - pip install pypi-install
+            - pip install requests
+
+            # Make the API request to add the comment
+            - export API_URL="https://api.bitbucket.org/2.0/repositories/$BITBUCKET_WORKSPACE/$BITBUCKET_REPO_SLUG/pullrequests/$BITBUCKET_PR_ID/comments"
+            - python snyk-tools/bin/delta_summary_comment.py delta_summary.txt $API_URL $PR_COMMENT_TOKEN
