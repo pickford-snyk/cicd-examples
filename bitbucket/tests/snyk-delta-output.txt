@@ -1,0 +1,82 @@
+_____________________________
+Direct deps:
+Added 1 
+js-deobfuscator@1.0.14
+===============
+Removed 0
+
+##################
+Indirect deps:
+Added 17 
+estraverse@4.3.0,shift-ast@6.1.0,esutils@2.0.3,shift-ast@7.0.0,shift-reducer@7.0.0,shift-codegen@8.0.0,multimap@1.1.0,shift-ast@6.0.0,shift-reducer@6.0.0,unicode-canonical-property-names-ecmascript@1.0.4,unicode-property-aliases-ecmascript@1.0.4,unicode-match-property-ecmascript@1.0.4,unicode-match-property-value-ecmascript@1.0.2,shift-regexp-acceptor@2.0.3,shift-parser@7.0.3,shift-validator@5.0.1,uuid@8.3.2
+===============
+Paths
+   estraverse@4.3.0 no issue:
+     js-deobfuscator@1.0.14=>estraverse@4.3.0
+   shift-ast@6.1.0 no issue:
+     js-deobfuscator@1.0.14=>shift-ast@6.1.0
+   esutils@2.0.3 no issue:
+     js-deobfuscator@1.0.14=>shift-codegen@8.0.0=>esutils@2.0.3
+   shift-ast@7.0.0 no issue:
+     js-deobfuscator@1.0.14=>shift-codegen@8.0.0=>shift-reducer@7.0.0=>shift-ast@7.0.0
+   shift-reducer@7.0.0 no issue:
+     js-deobfuscator@1.0.14=>shift-codegen@8.0.0=>shift-reducer@7.0.0
+   shift-codegen@8.0.0 no issue:
+     js-deobfuscator@1.0.14=>shift-codegen@8.0.0
+   multimap@1.1.0 no issue:
+     js-deobfuscator@1.0.14=>shift-parser@7.0.3=>multimap@1.1.0
+       js-deobfuscator@1.0.14=>shift-validator@5.0.1=>shift-parser@7.0.3=>multimap@1.1.0
+   shift-ast@6.0.0 no issue:
+     js-deobfuscator@1.0.14=>shift-parser@7.0.3=>shift-ast@6.0.0
+       js-deobfuscator@1.0.14=>shift-parser@7.0.3=>shift-reducer@6.0.0=>shift-ast@6.0.0
+       js-deobfuscator@1.0.14=>shift-validator@5.0.1=>shift-reducer@6.0.0=>shift-ast@6.0.0
+       js-deobfuscator@1.0.14=>shift-validator@5.0.1=>shift-parser@7.0.3=>shift-ast@6.0.0
+       js-deobfuscator@1.0.14=>shift-validator@5.0.1=>shift-parser@7.0.3=>shift-reducer@6.0.0=>shift-ast@6.0.0
+   shift-reducer@6.0.0 no issue:
+     js-deobfuscator@1.0.14=>shift-parser@7.0.3=>shift-reducer@6.0.0
+       js-deobfuscator@1.0.14=>shift-validator@5.0.1=>shift-reducer@6.0.0
+       js-deobfuscator@1.0.14=>shift-validator@5.0.1=>shift-parser@7.0.3=>shift-reducer@6.0.0
+   unicode-canonical-property-names-ecmascript@1.0.4 no issue:
+     js-deobfuscator@1.0.14=>shift-parser@7.0.3=>shift-regexp-acceptor@2.0.3=>unicode-match-property-ecmascript@1.0.4=>unicode-canonical-property-names-ecmascript@1.0.4
+       js-deobfuscator@1.0.14=>shift-validator@5.0.1=>shift-regexp-acceptor@2.0.3=>unicode-match-property-ecmascript@1.0.4=>unicode-canonical-property-names-ecmascript@1.0.4
+       js-deobfuscator@1.0.14=>shift-validator@5.0.1=>shift-parser@7.0.3=>shift-regexp-acceptor@2.0.3=>unicode-match-property-ecmascript@1.0.4=>unicode-canonical-property-names-ecmascript@1.0.4
+   unicode-property-aliases-ecmascript@1.0.4 no issue:
+     js-deobfuscator@1.0.14=>shift-parser@7.0.3=>shift-regexp-acceptor@2.0.3=>unicode-property-aliases-ecmascript@1.0.4
+       js-deobfuscator@1.0.14=>shift-validator@5.0.1=>shift-regexp-acceptor@2.0.3=>unicode-property-aliases-ecmascript@1.0.4
+       js-deobfuscator@1.0.14=>shift-parser@7.0.3=>shift-regexp-acceptor@2.0.3=>unicode-match-property-ecmascript@1.0.4=>unicode-property-aliases-ecmascript@1.0.4
+       js-deobfuscator@1.0.14=>shift-validator@5.0.1=>shift-regexp-acceptor@2.0.3=>unicode-match-property-ecmascript@1.0.4=>unicode-property-aliases-ecmascript@1.0.4
+       js-deobfuscator@1.0.14=>shift-validator@5.0.1=>shift-parser@7.0.3=>shift-regexp-acceptor@2.0.3=>unicode-property-aliases-ecmascript@1.0.4
+       js-deobfuscator@1.0.14=>shift-validator@5.0.1=>shift-parser@7.0.3=>shift-regexp-acceptor@2.0.3=>unicode-match-property-ecmascript@1.0.4=>unicode-property-aliases-ecmascript@1.0.4
+   unicode-match-property-ecmascript@1.0.4 no issue:
+     js-deobfuscator@1.0.14=>shift-parser@7.0.3=>shift-regexp-acceptor@2.0.3=>unicode-match-property-ecmascript@1.0.4
+       js-deobfuscator@1.0.14=>shift-validator@5.0.1=>shift-regexp-acceptor@2.0.3=>unicode-match-property-ecmascript@1.0.4
+       js-deobfuscator@1.0.14=>shift-validator@5.0.1=>shift-parser@7.0.3=>shift-regexp-acceptor@2.0.3=>unicode-match-property-ecmascript@1.0.4
+   unicode-match-property-value-ecmascript@1.0.2 no issue:
+     js-deobfuscator@1.0.14=>shift-parser@7.0.3=>shift-regexp-acceptor@2.0.3=>unicode-match-property-value-ecmascript@1.0.2
+       js-deobfuscator@1.0.14=>shift-validator@5.0.1=>shift-regexp-acceptor@2.0.3=>unicode-match-property-value-ecmascript@1.0.2
+       js-deobfuscator@1.0.14=>shift-validator@5.0.1=>shift-parser@7.0.3=>shift-regexp-acceptor@2.0.3=>unicode-match-property-value-ecmascript@1.0.2
+   shift-regexp-acceptor@2.0.3 no issue:
+     js-deobfuscator@1.0.14=>shift-parser@7.0.3=>shift-regexp-acceptor@2.0.3
+       js-deobfuscator@1.0.14=>shift-validator@5.0.1=>shift-regexp-acceptor@2.0.3
+       js-deobfuscator@1.0.14=>shift-validator@5.0.1=>shift-parser@7.0.3=>shift-regexp-acceptor@2.0.3
+   shift-parser@7.0.3 no issue:
+     js-deobfuscator@1.0.14=>shift-parser@7.0.3
+       js-deobfuscator@1.0.14=>shift-validator@5.0.1=>shift-parser@7.0.3
+   shift-validator@5.0.1 no issue:
+     js-deobfuscator@1.0.14=>shift-validator@5.0.1
+   uuid@8.3.2 no issue:
+     js-deobfuscator@1.0.14=>uuid@8.3.2
+===============
+Removed 0
+ []
+_____________________________
+
+New issue introduced !
+Security Vulnerability:
+
+  1/1: SNYK-JS-JSDEOBFUSCATOR-7176000:Code Injection [High Severity][cvssScore: 8.1]
+    Via: js-deobfuscator@1.0.14
+    Fixed in: js-deobfuscator 1.1.0
+    Fixable by upgrade:  js-deobfuscator@1.1.0
+
+
