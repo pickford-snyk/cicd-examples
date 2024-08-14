@@ -13,4 +13,5 @@ def check_org_id():
         return logger.error('BASELIN_ORG_ID is a required environment variable.')
     
 def check_ci_tool():
+    # Obviously need to re-write this if we want to handle different tooling
     return "bitbucket"

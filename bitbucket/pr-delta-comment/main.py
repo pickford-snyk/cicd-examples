@@ -4,6 +4,8 @@ import subprocess
 from modules import app_setup
 from modules import snyk_scan
 from modules import baseline
+from modules import format
+from modules import pr_comment_api
 
 logging.basicConfig(
     level=logging.ERROR,  # Set the minimum level of severity to ERROR
@@ -19,7 +21,13 @@ def main():
     snyk_scan.auth()
 
     # Get the baseline by either running monitor or using config 
-    print(snyk_scan.delta(baseline.get_project_id(ci_tool)))
+    delta = snyk_scan.delta(baseline.get_project_id(ci_tool))
+
+    # Put the delta data into JSON
+    formatted_delta = format.extract_vulns(delta)
+
+    # Add a PR Comment
+    pr_comment_api.add_comment(ci_tool, formatted_delta)
 
 if __name__ == "__main__":
     main()

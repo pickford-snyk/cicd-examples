@@ -1,6 +1,6 @@
 User Instructions
-1. Add the SNYK_TOKEN as an environment variable
-2. Add the SNYK Org UUID as an environment variable
+1. Add a token from Snyk with the name `SNYK_TOKEN` as an environment variable
+2. Add the SNYK Org UUID with the name `BASELINE_ORG_ID` an environment variable
 
 Oprtional
 1. Add the project ID as an environment variable
@@ -22,3 +22,4 @@ To Dos
 
 - run python scrips with unique commands from bitbucket-pipelines.yml
 - Potential improvement here might be to get the Org ID using the API, rather than requiring users to add it as an environment variable
+- configure the other CI tools in the config.py file

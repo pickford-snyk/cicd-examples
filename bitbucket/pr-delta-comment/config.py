@@ -6,10 +6,10 @@ BITBUCKET_CI_VARS = {
 
 BITBUCKET_PR_COMMENT_API = {
     'api_base_url': 'https://api.bitbucket.org/2.0/repositories/',
-    'variable_1': 'BITBUCKET_WORKSPACE',
+    'variable_1': '$BITBUCKET_WORKSPACE',
     'path_1': '/',
-    'variable_2': 'BITBUCKET_REPO_SLUG',
+    'variable_2': '$BITBUCKET_REPO_SLUG',
     'path_2': '/pullrequests/',
-    'variable_3': 'BITBUCKET_PR_ID',
+    'variable_3': '$BITBUCKET_PR_ID',
     'path_3': '/comments'
 }
