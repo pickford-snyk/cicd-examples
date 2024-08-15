@@ -17,9 +17,9 @@ Example Pipeline Files
 
 -------
 
-Limitations & Future Improvements
+Known Limitations & Future Improvements
+- Only Bitbucket is supported currently
 - Allow adding the project ID as an environment variable, skipping step that creates a project in Snyk
-- Add Snyk Code, Container and IaC scan deltas
-- New commits do not trigger PR comment update
-- Get Org ID using the API, rather than requiring users to add it as an environment variable
-- Configure CI tools other than bitbucket in the config.py file
+- Only Snyk OS is supported. Snyk Code, Container and IaC scan deltas are a future improvement
+- New commits do not trigger PR comment updates
+- The Org ID and slug must be an environment variable. Fetching them from the API may be a future improvement
