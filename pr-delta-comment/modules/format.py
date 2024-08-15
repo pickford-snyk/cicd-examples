@@ -52,14 +52,10 @@ def create_json(stdout_delta):
             }
         
             vulnerabilities.append(issue_data)
-    
-    print(vulnerabilities)
 
     return vulnerabilities
 
 def create_markdown(json_data):
-    print(json_data)
-    
     org_slug = os.environ["SNYK_ORG_SLUG"]
     project_id = baseline.get_project_id(app_setup.check_ci_tool())
     snyk_project_url = "https://app.snyk.io/org/" + org_slug + "/project/" + project_id
