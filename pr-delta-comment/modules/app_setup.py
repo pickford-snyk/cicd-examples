@@ -4,8 +4,8 @@ import logging
 logger = logging.getLogger(__name__)
 
 def check_token():
-    if "SNYK_PR_DELTA" not in os.environ:
-        return logger.error('SNYK_PR_DELTA is a required environment variable.')
+    if "SNYK_TOKEN" not in os.environ:
+        return logger.error('SNYK_TOKEN is a required environment variable.')
 
 def check_org_id():
     if "SNYK_ORG_ID" not in os.environ:

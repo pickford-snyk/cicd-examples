@@ -5,9 +5,10 @@ introduced from a pull request.
 Usage Instructions
 1. Use the [docker image](https://hub.docker.com/repository/docker/opickford/pr-delta-comment/general) to your build pipeline. Eg:
 ```image: opickford/pr-delta-comment:latest```
-2. Provision a Snyk token with appropriate permission and `SNYK_PR_DELTA` environment variable with the token value.
+2. Provision a Snyk token with appropriate permission and `SNYK_TOKEN` environment variable with the token value.
 3. Add a `SNYK_ORG_ID` environment variable with the value of the Snyk organization you want to use.
-3. Add a `SNYK_ORG_SLUG` environment variable with the value of the Snyk organization you want to use.
+4. Add a `SNYK_ORG_SLUG` environment variable with the value of the Snyk organization you want to use.
+5. Provision an SCM token with permissions to make comments and add it as repository variable with the name `SNYK_PR_DELTA`.
 4. Invoke the app by running `snyk-pr-delta-comment`
 
 Usage:

@@ -28,7 +28,7 @@ def add_comment(ci_tool, data):
         else:
             api_url += value
 
-    pr_comment_token = os.environ["PR_COMMENT_TOKEN"]
+    pr_comment_token = os.environ["SNYK_PR_DELTA"]
     
     json_string = json.dumps({"content": {"raw": data}})
 
