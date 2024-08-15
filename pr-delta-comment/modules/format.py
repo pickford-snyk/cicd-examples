@@ -62,16 +62,16 @@ def create_markdown(json_data):
 
     # Define color codes for severity
     color_codes = {
-        "Critical Severity": "<span style='display: inline-block; width: 20px; height: 20px; background-color: #ad1a1a; border-radius: 50%;'></span> Critical", # Red
-        "High Severity": "<span style='display: inline-block; width: 20px; height: 20px; background-color: #cc4f19; border-radius: 50%;'></span> High",  # Red
-        "Medium Severity": "<span style='display: inline-block; width: 20px; height: 20px; background-color: #d68100; border-radius: 50%;'></span> Medium", # Orange
-        "Low Severity": "<span style='display: inline-block; width: 20px; height: 20px; background-color: #86859d; border-radius: 50%;'></span> Low"    # Yellow
+        "Critical Severity": "&#128308; Critical", # Red
+        "High Severity": "&#128308; High",  # Red
+        "Medium Severity": "&#127464; Medium", # Yellow
+        "Low Severity": "&#9898; Low"    # Gray
     }
     
     markdown = "![Snyk Header Image](https://camo.githubusercontent.com/d5c338bf6ef2b50e56a8092a3b4ccbc82655bd86d2845d2984572c0b91b60b51/68747470733a2f2f7265732e636c6f7564696e6172792e636f6d2f736e796b2f696d6167652f75706c6f61642f722d642f73636d2d706c6174666f726d2f736e796b2d70756c6c2d72657175657374732f70722d62616e6e65722d64656661756c742e737667)\n\n"
     
     if json_data:
-        markdown += "# &#10071;&#10071; Snyk Found New Issues\n"
+        markdown += "# &#10071;&#10071; New Issues found!\n"
         markdown += "## Issue Summary\n\n"
         markdown += "| Type | ID | Description | Severity | CVSS Score | Fixed In | Upgrade Path |\n"
         markdown += "|----|----|-------|----------|------------|----------|-----|\n"
@@ -86,10 +86,10 @@ def create_markdown(json_data):
             
             markdown += f"| {issue['type']} | {issue['issue_id']} | {description} | {severity} | {cvss_score} | {fixed_in} | {upgrade_path} |\n"
     else:
-        markdown += "# :tada: No new vulns found\n\n"
+        markdown += "# :tada: No new issues found!\n\n"
     
     markdown += "\n\n"
-    markdown += "&#128269; View this projects scans in [Snyk](" + snyk_project_url + ")"
+    markdown += "## &#128269; View [this project](" + snyk_project_url + ") in Snyk."
     return markdown
 
 def extract_description(line):
