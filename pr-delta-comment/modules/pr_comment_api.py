@@ -8,7 +8,7 @@ def read_text_from_file(file_path):
     with open(file_path, 'r') as file:
         return file.read()
 
-def add_comment(ci_tool, json_data):
+def add_comment(ci_tool, data):
     # Determine build tool
     if ci_tool == "bitbucket":
         bb_config = "BITBUCKET_PR_COMMENT_API"
@@ -30,7 +30,7 @@ def add_comment(ci_tool, json_data):
 
     pr_comment_token = os.environ["PR_COMMENT_TOKEN"]
     
-    json_string = json.dumps({"content": {"raw": json_data}})
+    json_string = json.dumps({"content": {"raw": data}})
 
     # Send the JSON string to the specified API URL
     headers = {"Content-Type": "application/json", "Authorization": "Bearer " + pr_comment_token, "Accept": "application/json" }

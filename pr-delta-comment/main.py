@@ -25,10 +25,9 @@ def main():
     # Put the delta data into JSON
     formatted_delta = format.extract_vulns(delta)
 
-    print(format.create_markdown(formatted_delta))
+    markdown = format.create_markdown(formatted_delta)
 
-    # Add a PR Comment
-    # pr_comment_api.add_comment(ci_tool, formatted_delta)
+    pr_comment_api.add_comment(ci_tool, markdown)
 
 if __name__ == "__main__":
     main()
