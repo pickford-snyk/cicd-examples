@@ -2,6 +2,7 @@ FROM python:3.12
 RUN mkdir /usr/src/pr-delta-comment-app
 WORKDIR /usr/src/pr-delta-comment-app
 COPY . .
+RUN chmod +x bin/snyk-pr-delta-comment.sh
 RUN apt-get update --fix-missing
 RUN apt-get -y install curl
 RUN pip install -r ./requirements.txt

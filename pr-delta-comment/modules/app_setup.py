@@ -2,7 +2,6 @@ import os
 import logging
 
 logger = logging.getLogger(__name__)
-environment_variables = ['SNYK_TOKEN', "BASELINE_PROJECT_ID", "BASELINE_ORG_ID"]
 
 def check_token():
     if "SNYK_TOKEN" not in os.environ:

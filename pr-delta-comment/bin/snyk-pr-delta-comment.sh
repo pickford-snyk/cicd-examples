@@ -1,0 +1,2 @@
+#!/bin/bash
+python /usr/src/pr-delta-comment-app/main.py
