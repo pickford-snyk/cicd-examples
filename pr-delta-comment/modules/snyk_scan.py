@@ -4,7 +4,7 @@ import subprocess
 def auth():
     args = []
     args.append('auth')
-    args.append(os.environ['SNYK_TOKEN'])
+    args.append(os.environ['SNYK_PR_DELTA'])
     result = subprocess.run(['snyk'] + args, capture_output=True, text=True, shell=False)
     return result.stdout
 

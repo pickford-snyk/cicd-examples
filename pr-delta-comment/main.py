@@ -13,6 +13,7 @@ logging.basicConfig(
 def main():
     app_setup.check_token()
     app_setup.check_org_id()
+    app_setup.check_org_slug()
     ci_tool = app_setup.check_ci_tool()
     
     # Authenticate Snyk CLI
@@ -24,8 +25,10 @@ def main():
     # Put the delta data into JSON
     formatted_delta = format.extract_vulns(delta)
 
+    print(format.create_markdown(formatted_delta))
+
     # Add a PR Comment
-    pr_comment_api.add_comment(ci_tool, formatted_delta)
+    # pr_comment_api.add_comment(ci_tool, formatted_delta)
 
 if __name__ == "__main__":
     main()

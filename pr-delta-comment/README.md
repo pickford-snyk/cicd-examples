@@ -2,15 +2,22 @@
 Use this application to generage a pull request common for any new vulnerabilities
 introduced from a pull request.
 
-User Instructions
+Usage Instructions
 1. Use the [docker image](https://hub.docker.com/repository/docker/opickford/pr-delta-comment/general) to your build pipeline. Eg:
 ```image: opickford/pr-delta-comment:latest```
-2. Use a token with appropriate permission to set a `SNYK_TOKEN` environment variable.
+2. Provision a Snyk token with appropriate permission and `SNYK_PR_DELTA` environment variable with the token value.
 3. Add a `SNYK_ORG_ID` environment variable with the value of the Snyk organization you want to use.
+3. Add a `SNYK_ORG_SLUG` environment variable with the value of the Snyk organization you want to use.
+4. Invoke the app by running `snyk-pr-delta-comment`
+
+Usage:
+1. 
 
 Optional
 1. Add the project ID as an environment variable. This will skip the build step that creates a project in Snyk, potentially saving some time.
 
+Example Pipeline Files
+- [Bitbucket](../bitbucket/pipeline-examples/pr-comment-delta-docker.yml)
 
 -------
 

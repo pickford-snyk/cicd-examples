@@ -1,0 +1,17 @@
+image: opickford/pr-delta-comment:latest
+
+pipelines:
+  pull-requests:
+    # Define the branch where you want to add the comment
+    '**':
+      - step:
+          # This step will update the snyk scan of the target branch.
+          # You may be able to skip this step if you don't need an updated
+          # snyk scan on the target branch. For example, you may be doing already 
+          # continuous scanning of the target branch. In that case you can simply
+          # set the snyk project ID as a repository variable. If you are continuously 
+          # scanning the target branch, you can also retest using the Snyk API
+          # endpoint rather than using monitor.
+          name: Snyk delta scan & PR comment
+          script:
+            - snyk-pr-delta-comment

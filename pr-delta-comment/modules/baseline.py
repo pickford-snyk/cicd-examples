@@ -35,6 +35,7 @@ def get_project_id(ci_tool):
             text=True)
         match = re.search(pattern, monitor_stdout)
         if match:
+            os.environ['BASELINE_PROJECT_ID'] = match.group(1)
             return match.group(1)
         else:
             return "No Project ID Found"
