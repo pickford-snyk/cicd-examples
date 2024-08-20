@@ -12,5 +12,7 @@ RUN mv snyk bin
 ADD https://github.com/snyk-tech-services/snyk-delta/releases/download/v1.12.0/snyk-delta-linux .
 RUN chmod +x ./snyk-delta-linux
 RUN mv snyk-delta-linux bin/snyk-delta
+RUN curl --compressed https://raw.githubusercontent.com/snyk-playground/cx-tools/main/snyk-pr-diff/bin/snyk-pr-diff-amd64-linux -o snyk-code-iac-delta
+RUN chmod +x ./snyk-code-iac-delta
 ENV PATH="/usr/src/pr-delta-comment-app/bin:$PATH"
 EXPOSE 3000
