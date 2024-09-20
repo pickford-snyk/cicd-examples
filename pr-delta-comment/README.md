@@ -15,6 +15,12 @@ Usage Instructions
 Example Pipeline Files
 - [Bitbucket](../bitbucket/pipeline-examples/pr-comment-delta-docker.yml)
 
+### Adding Additional Source Control Management Tools
+1. Add an entry for the SCM in `config.py` with the CI VARIABLE names
+2. Add an entry for the SCAM in `config.py` with the API endpoint information
+3. Add logic for identifying the CI tool in the `check_ci_tool()` method in `app_setup.py`
+4. Add the SCM logic to handle branch names in the `get_branches()` method in `baseline.py`
+
 -------
 
 Known Limitations & Future Improvements
